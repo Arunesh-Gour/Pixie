@@ -1,0 +1,48 @@
+.Pixie
+|--- _config/
+|    |___ .vimrc
+|
+|--- _docs/
+|    |--- _project/
+|    |    |--- _reports/
+|    |    |    |--- ProjectWorkTimeline.rst
+|    |    |    |___ StatusReport_0000.rst
+|    |    |
+|    |    |--- ProjectPlan.rst
+|    |    |___ RepositoryStructure.txt           # this file
+|    |
+|    |--- _software/
+|    |
+|    |--- _standards/
+|    |    |--- _coding/
+|    |    |    |--- AdditionalLinks.rst
+|    |    |    |--- CCppJavaJSCoding.txt
+|    |    |    |--- CSSCoding.txt
+|    |    |    |--- PythonCoding.txt
+|    |    |    |___ XmlHtmlCoding.txt
+|    |    |
+|    |    |--- _others/
+|    |    |    |--- FileStructure.txt
+|    |    |    |--- NormalTextFile.txt
+|    |    |    |___ RepositoryStructure.txt
+|    |    |
+|    |    |--- _report/
+|    |    |    |--- ClosureReport.rst
+|    |    |    |--- ProjectWorkTimeline.rst
+|    |    |    |___ StatusReport_0000.rst
+|    |    |
+|    |    |--- _software/
+|    |    |    |___ SRS.rst
+|    |    |
+|    |    |--- Contributing.rst
+|    |    |___ ProjectPlan.rst
+|    |
+|    |--- Contributing.rst
+|    |___ GitHubUsage.rst
+|
+|--- _src/
+|
+|--- _test/
+|
+|--- README.txt
+|___ requirements.txt
