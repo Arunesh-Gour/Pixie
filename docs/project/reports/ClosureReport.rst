@@ -30,7 +30,7 @@ Schedule
 ========
 Duration
 --------
-The project was intended to be completed withing 2 months from the date of
+The project was intended to be completed within 2 months from the date of
 assignment.
 
 Schedule varience
