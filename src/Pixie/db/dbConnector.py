@@ -90,9 +90,11 @@ class DBConnector:
       
       housestring += "|"
       
-      filehandler = open(self.filewpath, "w")
-      filehandler.write(housestring + "\n")
-      filehandler.close()
+      if (not (os.path.exists(self.filewpath))):
+         os.system(">> " + self.filewpath)
+      
+      with open(self.filewpath, "w") as filehandler:
+         filehandler.write(housestring)
       
       return 0
    
@@ -110,6 +112,7 @@ class DBConnector:
       ]
       
       housescollection = []
+      #housescollection = None
       for house in houses:
          houseattribs = [houseattrib \
             for houseattrib in re.split("@", str(house)) \
@@ -185,6 +188,7 @@ class DBConnector:
             roomscollection.append(modelroom)
          
          modelhouse.signal(key="rooms", value=roomscollection)
+         #housescollection = modelhouse
          housescollection.append(modelhouse)
       
       self.house = housescollection[0]

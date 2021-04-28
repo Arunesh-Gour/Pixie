@@ -5,7 +5,6 @@ import multiprocessing
 
 from ..db import dbController
 from . import (AutoExecutor, HouseDesigner, PersonController,)
-# from .AutoExecutor import AutoExecutor
 
 currentsystemos = 0
 # 0:linux, 1:windows
@@ -38,9 +37,11 @@ class Automator:
             return -1
          sysrun("clear")
       else:
-         self.house = self.dbController.house
+         self.house = self.dbController.signal("house?")
       
       # pc = personController; used short to reduce variables to pc.person.*
+      if (self.house == None):
+         raise ValueError ("House is none")
       self.pc = PersonController.PersonController(self.house)
       self.pc.speed = self.timespeed
       
@@ -75,12 +76,11 @@ class Automator:
          "running", \
       )
    
+   """
    def __del__ (self):
       self.kill()
-      self.dbController.house = self.house
-      if (self.dbController.save() != 0):
-         return -1
       return 0
+   """
    
    # def auto_exec (self, exec_function, interval=60):
    
@@ -92,7 +92,8 @@ class Automator:
       )
       self.pcController = multiprocessing.Process(\
          target=self.pcExecutor.auto_execute, \
-         args=(self.pc.change_automatic, None, 60, self.timespeed,), \
+         args=(self.pc.change_all, None, 60, self.timespeed,), \
+         daemon=True, \
       )
       self.statusController = threading.Thread(\
          target=self.statusExecutor.auto_execute, \
@@ -149,8 +150,8 @@ class Automator:
       return 0
    
    def auto_dbsave (self):
-      self.dbController.house = self.house
-      if (self.dbController.save()):
+      self.dbController.signal("house", self.house,)
+      if (self.dbController.save() != 0):
          return -1
       return 0
    
@@ -183,6 +184,7 @@ class Automator:
          space_width = len(room.name) + 7
          for appliance in room.appliances:
             if (appliance_done >= 2):
+               appliance_done = 0
                print("\n" + " "*space_width, end='')
             if (type(appliance).__name__ == 'Door'):
                print("Door (powered {0}, {1}), ".format(\

@@ -19,7 +19,7 @@ class PersonController:
             self.person.position = random.randint(0, 2)
          else:
             self.person.position = random.randint(1, 5)
-         self.person.location = random.randint(1, self.house.availableroomid)
+         self.person.location = random.randint(1, (self.house.availableroomid - 1))
    
    def auto_check (self, variable, value):
       while (self.person.signal(variable) == value):
@@ -240,6 +240,24 @@ class PersonController:
                t1.join()
                self.killthread = True
    
+   def change_all (self):
+      if (self.person.location == 0):
+         self.change_location()
+      else:
+         if (self.person.state == 0):
+            self.change_state()
+         elif (self.person.state == 1):
+            self.change_position()
+            self.change_state()
+         elif (self.person.state > 1):
+            if (self.person.position < 3):
+               self.change_position()
+               self.change_state()
+            elif (self.person.position >= 3):
+               self.change_location()
+               self.change_position()
+      return 0
+   
    def change_state (self, state_range=None):
       if (state_range):
          self.person.state = random.randint(state_range[0], state_range[1])
@@ -268,7 +286,7 @@ class PersonController:
                      2, 2, 2, 2,
                   )\
                )
-            elif (self.person.position == 2):
+            elif (self.person.position >= 2):
                self.person.state = random.choice(\
                   (\
                      0, 0,
@@ -325,7 +343,15 @@ class PersonController:
          self.person.position = random.randint(position_range[0], position_range[1])
       else:
          if (self.person.state == 0):
-            pass
+            if (self.person.position <= 1):
+               self.person.position = random.choice(\
+                  (\
+                     0, 0, 0, 0, 0, 0, 0, 0, 0,
+                     1, 1, 1, 1, 1, 1,
+                  )\
+               )
+            elif (self.person.position > 1):
+               self.person.position = 0
          elif (self.person.state == 1):
             if (self.person.position == 0):
                self.person.position = random.choice(\
@@ -349,6 +375,13 @@ class PersonController:
                      0, 0,
                      1, 1, 1, 
                      2, 2, 2, 2, 2, 2, 2, 2, 2,
+                  )\
+               )
+            elif (self.person.position > 2):
+               self.person.position = random.choice(\
+                  (\
+                     0, 0, 0, 0, 0,
+                     1, 1, 1, 
                   )\
                )
          elif (self.person.state == 2):
@@ -426,8 +459,9 @@ class PersonController:
       
       # Turn on all appliances in current location.
       if ((self.person.location != old_loc) and \
-         (self.person.location != 0)):
-         for appliance in self.house.rooms[self.person.location].appliances:
+         (self.person.location != 0) and \
+         (self.person.location > 0)):
+         for appliance in self.house.rooms[self.person.location - 1].appliances:
             if (type(appliance).__name__ == "Fan"):
                appliance.signal("power", True)
                appliance.signal(\
