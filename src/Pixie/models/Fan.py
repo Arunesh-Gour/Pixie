@@ -5,11 +5,17 @@ class Fan:
       self.maxspeed = 3
    
    def signal(self, key, value=None):
-      if (key == "power"):
-         if (self.power):
-            self.power = False
+      if (key == "keys?"):
+         return ("power?", "speed?", )
+      elif (key == "power?"):
+         return self.power
+      elif (key == "speed?"):
+         return self.speed
+      elif (key == "power"):
+         if (value):
+            self.power = value
          else:
-            self.power = True
+            return -1
       elif (key == "power+"):
          self.power = True
       elif (key == "power-"):

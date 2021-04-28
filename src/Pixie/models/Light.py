@@ -5,11 +5,17 @@ class Light:
       self.maxbrightness = 100
    
    def signal(self, key, value=None):
-      if (key == "power"):
-         if (self.power):
-            self.power = False
+      if (key == "keys?"):
+         return ("power?", "brightness?", )
+      elif (key == "power?"):
+         return self.power
+      elif (key == "brightness?"):
+         return self.brightness
+      elif (key == "power"):
+         if (value):
+            self.power = value
          else:
-            self.power = True
+            return -1
       elif (key == "power+"):
          self.power = True
       elif (key == "power-"):
