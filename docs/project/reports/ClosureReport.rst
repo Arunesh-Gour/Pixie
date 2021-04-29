@@ -12,7 +12,7 @@ Description
 Smart AI home automation project, capable of controlling various smart devices
 in home to suit the needs of the user to provide maximum comfort while
 keeping the resource usage low.
-Smartly controls the various home devices like fans, lights, tv, and door.
+Smartly controls the various home devices like fans, lights, tv, and door, etc.
 
 Team details
 ============
@@ -55,7 +55,7 @@ project by huge amounts.
 Highlight of changes
 --------------------
 Instead of originally thought neural network based project, the architecture
-was reduced to merely simple agent given the fact that it was a mini project
+was reduced to simplex agent given the fact that it was a mini project
 and the time required by neural networks is a lot.
 
 Quality management
@@ -64,9 +64,9 @@ Quality management
 
 Reason for defects
 ------------------
-1. Simple agent is not good enough to track and update to user's nature easily
-   and given that this agent utilizes simple agent, it has low user history,
-   i.e. low memory for tracking user requirements from past data.
+1. Simplex agent is not good enough to track and update to user's nature easily
+   and given that this is a simplex agent, it has low to no user history,
+   i.e. low to no memory for tracking user requirements from past data.
 2. Low memory for user activity tracking causes the system to be able to
    perform only simple tasks.
 
@@ -74,20 +74,20 @@ Risk / issue management
 =======================
 Risks
 -----
-1. Security in door locking.
-2. Mid-way stuck due to power issues.
+1. In-efficient in securing homes.
+2. Inoperability during power failures.
 
 Issues
 ------
-1. Low-end IoT devices.
-2. Poor connectivity on cross-platforms.
-3. Internet availability and security.
+1. Simplex AI agent - less efficient and smart.
+2. Poor cross-platform operation - needs external drivers.
+3. Complexity of initial house configuration / setup.
 
 Impact
 ------
 1. Security issues while locking door from insecure application / driver.
-2. Status querying error if power outage midway during any operation.
-3. Issues connecting from other devices.
+2. Status querying error if power outage during any operation.
+3. Issues connecting to / from other devices - needs external drivers.
 
 Human resource management
 =========================
@@ -134,14 +134,18 @@ allow for complex tasks by the agent.
 
 Trends
 ------
-Theme resolved around "complexity in prject would be more helpful and
-better".
+The theme of feedback revolved around project's inability to carry out
+complex tasks at the moment, and the length and time consumed during initial
+house configuration / setup, though it is just a stub for real IoT devices.
+
+People often said that "complexity in this project would be more beneficial".
 
 Opportunities
 -------------
-1. Development of more complex agent by expanding the capabilities of this
-   project.
-2. More people will adopt the project if scope is expanded.
+1. Expanding project's scope to much more complex tasks, using advanced
+   algorithms.
+2. Shortening and simplification of initial house configuration / setup.
+3. Expansion of project scope.
 
 Lesson Learned
 ==============
@@ -177,18 +181,31 @@ Benefits realized
 
 Benchmark comparisions
 ----------------------
-Other project often are too complex and are generally paid or require more
-resources and power to function. While, our project is self developed, open
-source, free, uses limited resources, and can be implemented quickly
-anywhere.
+* This project offers simple, minimal user interface with one-time interaction.
+* It is fully automated and required no interaction from the user except
+  initial house configuration / setup.
+* Provides easy one glance system status monitoring.
+* Real-time system status, monitoring and decision making.
+* Fast & secure.
+
+Although the project have multiple benifits over traditional house automation
+systems, this project does not aims or intends to replace them. But instead,
+it serves as an add-on or extension or controller system for them.
 
 Executive summary
 =================
 Project summary
 ---------------
 Problem
-   The main issue was that existing projects either use a lot of power
-   to manage smart devices or lacks simple operations and simplicity.
+   * Smart devices used in home automation generally use more resources than
+     intended, mostly because they are powered on indefinitely.
+   * On many occasions, people have a very busy schedule due to which they
+     forget to turn off devices, leading to heavy bills, depletion of limited
+     resources, etc.
+   * Due to such busy schedules, there are many instances of people forgetting
+     to close the doors or secure their house properly before leaving.
+   * Due to complex interfaces, people often face difficulties in operating and
+     maintaining home automation devices.
 
 Purpose
    To solve existing problems while keeping things simple and easy.
@@ -196,7 +213,7 @@ Purpose
 Description
    This project solves the issue of limited resources by conserving low
    power owing to low-end devices, while keeping scope and algorithm simple,
-   open and free.
+   free and open source.
 
 Background
 ----------
@@ -206,7 +223,8 @@ quick and easy automation led to the creation of this project.
 
 Process
 -------
-1. Only class members were involved in this project as this is a group project.
+1. Only closed group members were involved in this project as this is a group
+   project.
 2. Every member contributed to the project as this is the collaborative idea of
    each involved.
 3. Every member contributed equally in all phases of development - from
@@ -224,5 +242,10 @@ people's attention or due to busy and un-predictable issues.
 
 Recommendations
 ---------------
-To make this project great, it will be made open and available to all at no
-cost.
+Though the project successfully resolved key issues for which the project
+was intended, there is still a need to improve algorithms and agents to
+enable it to perform many complex tasks rather than being stuck at performing
+simple tasks.
+
+Hence, future updates will follow which will bring out changes in algorithms
+like use of Deep neural networks, better interfaces, more simplification, etc.
